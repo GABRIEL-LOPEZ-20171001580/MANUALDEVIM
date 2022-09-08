@@ -26,7 +26,35 @@ Una vez que la tecla se ha introducido, el editor colocará el texto \texttt{INS
 	\item \textit{VISUAL}: Este entorno se encarga de función de copiar y pegar contenido de las lineas. Para entrar a este modo, se debe introducir \texttt{v} con el teclado.
 Una vez que el modo \textit{VISUAL} está activado debe aparecer en pantalla la leyenda \texttt{VISUAL} en la esquina inferior izquierda. 
 \end{itemize}
+Es importante destacar que para salir de un entorno para entrar de nuevo al entorno \textit{NORMAL} se introduce la tecla \texttt{Esc} con el teclado. Para ilustrar los entornos de \texttt{Vim} colocamos la siguiente imagen. En dicha imagen es notorio que debido al idioma con el que se tiene el ordenador, aparece la leyenda \texttt{INSERTAR} en la parte inferior, denotando que el modo de inserción de texto está activo. 
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.6]{./img/Vim_INS.png}
+	\caption{\texttt{Vim} en el modo \textit{INSERTAR}}
+\end{figure}
+\newline
+A pesar de todo esto, existen muchos más entornos dentro del editor, sin embargo, consideramos que estos tres son los más útiles para un usuario nuevo de \texttt{Vim} debido a que facilitan la escritura de documentos y permiten la introducción de comandos dentro del mismo. 
+\newpage
 \section{¿Cómo salir de \texttt{Vim}?}
-Es normal que el usuario novato de GNU-Linux o cualquier sistema operativo derivado de UNIX. De modo que el sistema operativo a veces deja el usuario dentro de \texttt{Vim} sin ningún aviso de cómo salir del editor de texto. Por esta razón en esta sección se explicará como salir de \texttt{Vim}. 
+Es normal que el usuario novato de GNU-Linux o cualquier sistema operativo derivado de UNIX. De modo que el sistema operativo a veces deja el usuario dentro de \texttt{Vim} sin ningún aviso de cómo salir del editor de texto. Por esta razón en esta sección se explicará como salir de \texttt{Vim}. \\
+Para empezar, la imagen inicial que el usuario tiene al entrar a \texttt{Vim} es la siguiente: \newline
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.4]{./img/poisson_mu1.png}
+	\caption{Primera impresión de \texttt{Vim}}
+\end{figure}
+\newline
+Podría parecer que \texttt{Vim} es complicado, pero en realidad, salir del editor es relativamente sencillo, la secuencia de pasos para salir de \texttt{Vim} es la siguiente:
+\begin{itemize}
+	\item Primero, si usted desea guardar el contenido del archivo, es conveniente guardar el contenido del archivo primero, esto se logra mediante el comando \texttt{:w} dentro del entorno \textit{NORMAL}.
+	\item Ahora que el archivo está guardado, es posible salir del editor sin problemas, por lo que se procede a colocar el comando \texttt{:q} dentro del mismo entorno \textit{NORMAL}.
+\end{itemize}
+Si bien es posible que queramos guardar el contenido de nuestro archivo de texto, también tenemos la opción de salir sin guardar (no recomendada a menos que se desee salir de \texttt{Vim} si se entró por error), en este caso, basta con introducir el comando \texttt{:q!} en el modo \textit{NORMAL} del editor.
+\section{¿Existe alguna forma de aprender \texttt{Vim} mediante ejemplos?}
+Si bien \texttt{Vim} es un editor de texto que puede parecer poco ortodoxo al principio, existen formas para aprender su uso de una forma interactiva mediante ejemplos. En el caso de \texttt{Vim} existe el complemento denominado \texttt{vimtutor}, que es un complemento de consola que suele estar instalado en cualquier máquina UNIX. En el caso de querer acceder a dicho complemento, basta con introducir el comando \texttt{vimtutor} dentro de la terminal de GNU-Linux o su equivalente en UNIX. 
+\section{Navegación en \texttt{Vim}}
+\texttt{Vim} es un editor de texto que tiene un esquema de navegación diferente al resto de editores de texto que podemos encontrar en el mercado. Esto es debido a cuestiones de convención. 
+Si bien, las teclas direccionales del teclado funcionan para navegar entre texto dentro del editor, su uso no es recomendado por la mayoría de guias de uso de \texttt{Vim}. \\
+Esto se entiende mejor con los ejemplos proporcionados por el complemento de consola llamado \texttt{vimtutor}. Para nuestros efectos, se busca introducir al usuario a los conceptos básicos de los que \texttt{Vim} para que sea capaz de redactar documentos simples dentro del editor. Dicho esto, podemos mostrar el esquema básico de navegación del que hace uso \texttt{Vim}.
 \end{document}
 
