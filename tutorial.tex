@@ -72,6 +72,22 @@ Como se puede ver, el esquema de navegación dista de los editores convencionale
 \newpage
 \subsection{Otras opciones de movimiento en \texttt{Vim}}
 Como se mencionó anteriormente, \texttt{Vim} trata el movimiento como si fuera un comando de consola, esto permite aplicar ciertos efectos al movimiento.
-Si bien, el movimiento básico se resume con las teclas, \texttt{h,j,k} y \texttt{l}, existen también tres comandos útiles que deben ser mostrados para que este manual se pueda considerar una referencia útil para el uso de \texttt{Vim}.  
+Si bien, el movimiento básico se resume con las teclas, \texttt{h,j,k} y \texttt{l}, existen también cuatro comandos útiles que deben ser mostrados para que este manual se pueda considerar una referencia útil para el uso de \texttt{Vim}.
+En general, \texttt{Vim} suele trabajar por \textit{palabras}cuando se habla de navegación dentro de una linea de texto, entonces existen formas para desplazarse en una linea de texto de palabra en palabra. En este caso, existen cuatro comandos destinados para esta función:
+\begin{itemize}
+	\item El comando \texttt{w} permite al usuario desplazarse desde su localización actual hacia el \textit{inicio} de la siguiente palabra en la linea de texto. 
+	\item El comando \texttt{e} permite al usuario desplazarse desde su actual ubicación, hacia el \textit{final} de la siguiente palabra en la linea actual de texto.
+	\item Se usa el número \texttt{0} para desplazarse hacia el \textit{inicio} de la linea.
+	\item Finalmente, el comando \texttt{\$} se usa para desplazarse hacia el \textit{final} de la linea.
+\end{itemize}
+\section{La función de \textit{Borrar} en \texttt{Vim}}
+Como cualquier editor de texto plano, usualmente queremos editar el contenido de nuestro archivo, ya sea cambiando algunas lineas dentro del archivo o \textit{borrando} contenido dentro de las líneas. En \texttt{Vim} la función de \textit{borrar} dentro del documento está relativamente ligada al uso de movimiento.\\
+Esto es debido a que podemos pensar en lo siguiente: la función de borrar se activa con el comando \texttt{d} y la cantidad de contenido a borrar se determina usando los comandos de movimiento vistos anteriormente. Por lo que, para ilustrar algunos de los usos de este mecánica, es conveniente colocar algunos de los comandos más utilizados con esta modalidad. 
+\begin{itemize}
+	\item El comando \texttt{dw} permite borrar todo lo que está desde \textit{la ubicación actual hasta el inicio de la siguiente palabra.} Como ven, el comando de \textit{borrar} se antepone a la opción de movimiento.
+	\item Introduciendo \texttt{de} podemos borrar todo aquello que está comprendido desde \textit{la localización del puntero en el editor, hasta el final de la siguiente palabra en la linea}. 
+\end{itemize}
+Como podemos observar, el comando de \textit{borrar} en \texttt{Vim} usualmente está antes de la opción de movimiento. Sin embargo, debido a razones que los creadores de \texttt{Vim} comentan en \texttt{vimtutor} es común que se requiera \textit{borrar una o más lineas completas}. \\
+En este caso, la función de borrar es mucho más sencilla, solamente basta con introducir el comando \texttt{dd}. Es en este punto en donde es conveniente introducir una figura que está presente también en \texttt{Vim} y que al día de hoy, no hemos visto en otros editores de texto y que, al día de hoy, no hemos visto en otros editores de texto, esta característica se conoce como \textit{contadores}
 \end{document}
 
