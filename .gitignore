@@ -1,4 +1,4 @@
 *.log
 *.nav
 *.aux
-*.synctex.gzip
+*.swp
