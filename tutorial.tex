@@ -6,7 +6,7 @@
 \usepackage[spanish]{babel}
 \usepackage{graphicx}
 \usepackage[letterpaper]{geometry}
-
+\usepackage{lmodern,minted}
 
 \begin{document}
 \maketitle
@@ -97,6 +97,22 @@ Sin embargo, en \texttt{Vim} se debe aplicar el uso de los comandos vistos anter
 	\item \texttt{dd} es el comando usado para borrar una linea completa en el documento de texto. 
 \end{itemize}
 Este es el uso más sencillo de los contadores en \texttt{Vim}, sin embargo, su uso no se limita solamente a esto, y es recomandable revisar la sección de contadores en el complemento \texttt{vimtutor} para una mejor comprensión del uso de esta característica del editor.
-\section{Uso de }
+\section{Configuración del archivo \texttt{.vimrc}}
+\texttt{Vim} es un programa de UNIX, lo que significa que como una gran mayoría de los programas de terminal que se usan en esta plataforma, este usa un archivo de configuración. Este archivo se encuentra en el directorio \texttt{\$HOME} de la terminal de GNU-LINUX, con el nombre de \texttt{.vimrc}. 
+Como se puede observar \texttt{.vimrc} es un archivo oculto, por lo que es necesario cambiar las opciones por defecto en su gestor de archivos o introducir el comando \texttt{ls -a} en la terminal. \\
+El archivo \texttt{.vimrc} es util para configurar opciones globales de \texttt{Vim}, estas sobre todo se refieren a \textit{qué} hacer con ciertos archivos, sobre todo a aquellos que tienen un tipo de extensión particular como ser \texttt{.tex, .c, .py}, etc. Sobre todo, \texttt{Vim} facilita ciertas cosas útiles para el usuario al momento de editar estos archivos, como ser: 
+\begin{itemize}
+	\item \textit{Syntax-highlighting}:  que es básicamente colocar colores a ciertas expresiones para diferenciar entre comandos y texto plano. Esto es particularmente útil con archivos de \LaTeX, dado que permite una mejora en la legibilidad del archivo.
+	\item \textit{Numeración de las líneas}: como en los editores de texto modernos, \texttt{Vim} tiene la opción de asignar números a las líneas de texto. Esto facilita el \textit{depuración} del código independientemente del lenguaje de programación, porque permite revisar la línea que tiene errores dentro del archivo de reporte de errores. 
+	\item \textit{Instalación de Plugins}: \texttt{Vim} permite configurar el editor para mejorar ciertas funcionalidades referentes a ciertos archivos de texto. Los plugins que serán usados en este manual son referentes a la integración de \LaTeX \ con \texttt{Vim}. Para la instalación de estos plugins, se suele incluir una línea dentro del \texttt{.vimrc} para indicar qué plugin se procede a instalar.  
+\end{itemize}
+Para mostrar algunas de las posibles configuraciones que pueden hacerse en el archivo \texttt{.vimrc} sin hacer instalaciones avanzadas (eso será tratado en un momento posterior en este manual) se pasa a mostrar una configuración básica del archivo \texttt{.vimrc}. 
+\begin{minted}{vim}
+	"La siguiente linea sirve para activar la numeración de lineas dentro de Vim"
+	set number
+	"Lo siguiente es para activar el text wrap"
+	set wrap
+\end{minted}
+
 \end{document}
 
