@@ -6,7 +6,9 @@
 \usepackage[spanish]{babel}
 \usepackage{graphicx}
 \usepackage[letterpaper]{geometry}
-\usepackage{lmodern,minted}
+%\usepackage{lmodern,minted}
+\usepackage{blindtext}
+\usepackage{hyperref}
 
 \begin{document}
 \maketitle
@@ -54,7 +56,7 @@ Si bien es posible que queramos guardar el contenido de nuestro archivo de texto
 Si bien \texttt{Vim} es un editor de texto que puede parecer poco ortodoxo al principio, existen formas para aprender su uso de una forma interactiva mediante ejemplos. En el caso de \texttt{Vim} existe el complemento denominado \texttt{vimtutor}, que es un complemento de consola que suele estar instalado en cualquier máquina UNIX. En el caso de querer acceder a dicho complemento, basta con introducir el comando \texttt{vimtutor} dentro de la terminal de GNU-Linux o su equivalente en UNIX. 
 \section{Navegación en \texttt{Vim}}
 \texttt{Vim} es un editor de texto que tiene un esquema de navegación diferente al resto de editores de texto que podemos encontrar en el mercado. Esto es debido a cuestiones de convención. 
-Si bien, las teclas direccionales del teclado funcionan para navegar entre texto dentro del editor, su uso no es recomendado por la mayoría de guias de uso de \texttt{Vim}. \\
+Si bien, las teclas direccionales del teclado funcionan para navegar entre texto dentro del editor, su uso no es recomendado por la mayoría de guias de uso de \texttt{Vim}. 
 \subsection{Navegación básica en \texttt{Vim}}
 Esto se entiende mejor con los ejemplos proporcionados por el complemento de consola llamado \texttt{vimtutor}. Para nuestros efectos, se busca introducir al usuario a los conceptos básicos de los que \texttt{Vim} para que sea capaz de redactar documentos simples dentro del editor. Dicho esto, podemos mostrar el esquema básico de navegación del que hace uso \texttt{Vim}.
 \begin{figure}[h]
@@ -107,12 +109,39 @@ El archivo \texttt{.vimrc} es util para configurar opciones globales de \texttt{
 	\item \textit{Instalación de Plugins}: \texttt{Vim} permite configurar el editor para mejorar ciertas funcionalidades referentes a ciertos archivos de texto. Los plugins que serán usados en este manual son referentes a la integración de \LaTeX \ con \texttt{Vim}. Para la instalación de estos plugins, se suele incluir una línea dentro del \texttt{.vimrc} para indicar qué plugin se procede a instalar.  
 \end{itemize}
 Para mostrar algunas de las posibles configuraciones que pueden hacerse en el archivo \texttt{.vimrc} sin hacer instalaciones avanzadas (eso será tratado en un momento posterior en este manual) se pasa a mostrar una configuración básica del archivo \texttt{.vimrc}. 
-\begin{minted}{vim}
-	"La siguiente linea sirve para activar la numeración de lineas dentro de Vim"
-	set number
-	"Lo siguiente es para activar el text wrap"
-	set wrap
-\end{minted}
+Esta es la configuración que el autor de este documento usa hasta el momento, sin embargo, es necesario que se comprenda que muchas de las lineas que aparecen en este documento están relacionadas a los \textit{plugins} que el autor del documento mostrará más adelante.
+\newpage
+\subsection{Configuración básica de un archivo \texttt{.vimrc}}
+\begin{verbatim}
+	"Esto es un comentario en el archivo .vimrc"
 
+	"El siguiente comando es para colocar numero de línea al lado del editor"
+	:set number 
+	"Comando para hacer ajuste del texto al ancho de ventana"
+	:set wrap
+	"Para la instalación de plugins"
+	call plug#begin('~/.vim/plugged')
+	"Algunos plugins"
+	"Instalar Plugins"
+	"Se instalan multiples plugins con el comando Plug #comando"
+	"seguido del caracter |"
+	Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+	Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+	Plug 'lervag/vimtex'
+\end{verbatim}
+Como podemos ver, en realidad, las posibilidades de configurar el archivo \texttt{.vimrc} son infinitas, sobre todo porque ocultamos (por brevedad) el resto de la configuración de \textit{plugins} que se hacen dentro del archivo mencionado.
+Considerando esto, podemos ver que el archivo \texttt{.vimrc} es un archivo fundamental para poder configurar a \texttt{Vim} para poder realizar tareas productivas tanto como un \textit{IDE} (para programación) o como editor de documentos de \LaTeX.
+Hay que destacar que la configuración anterior es una configuración sumamente básica, es común que los usuarios avanzados de \texttt{Vim} tengan archivos de configuración de más de cien líneas. 
+\section{Instalación de \textit{Plugins}}
+\texttt{Vim} es un editor de texto muy básico, pero su principal ventaja es su capacidad de ser \textit{extensible} lo que permite agregar funciones a \texttt{Vim} que pueden ser:
+\begin{enumerate}
+	\item \textit{Syntax Highlighting} para los distintos lenguajes de programación que se usen para desarrollo de software en \texttt{Vim}.
+	\item Configuración de atajos de teclado \textit{para cada uno de los lenguajes de programación usados en} \texttt{Vim}, un buen ejemplo de esto puede ser el que, si tomamos a \LaTeX como un ejemplo, es muy común tener que escribir \texttt{"begin"} para colocar un entorno como \texttt{equation} o \texttt{align}. Por lo que es posible configurar un atajo de teclado para evitar la escritura completa de este comando.  
+\end{enumerate}
+Los \textit{Plugins} en \texttt{Vim} se pueden instalar de dos formas: manual y utilizando un \textit{plugin-manager}. Debido a cuestiones más prácticas, vamos a centrarnos en la última forma de instalar los \textit{plugins}. En este caso, consideramos que es más conveniente revisar la documentación del \textit{plugin-manager} que el autor de este manual recomienda, en este caso, se recomienda empezar usando el \textit{manager} conocido como \textbf{Vim-Plug}.\\
+\textbf{Comentario: Como muchas de las instrucciones de instalación de software en Linux suelen cambiar con el tiempo, consideramos más conveniente que el lector revise las instalaciones de instalación de Vim-Plug en el repositorio de GitHub de este componente software.} El repositorio de \textbf{Vim-Plug} se encuentra en la siguiente dirección web. 
+\begin{center}
+\url{https://github.com/junegunn/vim-plug}	
+\end{center}
+Una vez que se ha instalado el gestor de plugins \textit{Vim-Plug}, es posible que si requiere instalar plugins de utilidad para este manual, usted requiera cambiar algunas cosas en el archivo \texttt{.vimrc}. Los plugins de interés que el autor usa en este manual se encuentran en la subsección 7.1 de este manual.  
 \end{document}
-
