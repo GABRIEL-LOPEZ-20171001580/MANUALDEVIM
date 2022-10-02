@@ -6,9 +6,11 @@
 \usepackage[spanish]{babel}
 \usepackage{graphicx}
 \usepackage[letterpaper]{geometry}
-%\usepackage{lmodern,minted}
+\usepackage{lmodern,minted}
 \usepackage{blindtext}
 \usepackage{hyperref}
+\usepackage{forest}
+
 
 \begin{document}
 \maketitle
@@ -112,23 +114,25 @@ Para mostrar algunas de las posibles configuraciones que pueden hacerse en el ar
 Esta es la configuración que el autor de este documento usa hasta el momento, sin embargo, es necesario que se comprenda que muchas de las lineas que aparecen en este documento están relacionadas a los \textit{plugins} que el autor del documento mostrará más adelante.
 \newpage
 \subsection{Configuración básica de un archivo \texttt{.vimrc}}
-\begin{verbatim}
-	"Esto es un comentario en el archivo .vimrc"
+\begin{minted}[linenos]{vim}
+"Esto es un comentario en el archivo .vimrc"
 
-	"El siguiente comando es para colocar numero de línea al lado del editor"
-	:set number 
-	"Comando para hacer ajuste del texto al ancho de ventana"
-	:set wrap
-	"Para la instalación de plugins"
-	call plug#begin('~/.vim/plugged')
-	"Algunos plugins"
-	"Instalar Plugins"
-	"Se instalan multiples plugins con el comando Plug #comando"
-	"seguido del caracter |"
-	Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-	Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
-	Plug 'lervag/vimtex'
-\end{verbatim}
+"El siguiente comando es para colocar numero de línea al lado del editor"
+:set number 
+"Comando para hacer ajuste del texto al ancho de ventana"
+:set wrap
+"Comando usado para la instalación de plugins"
+call plug#begin('~/.vim/plugged')
+
+"INSTALACION DE PLUGINS"
+"Se instalan multiples plugins con el comando Plug #nombre
+"seguido del caracter |"
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+Plug 'lervag/vimtex'
+"Mas adelante se aprenderá para qué sirven los comandos situados"
+"Despues del :set wrap"
+\end{minted}
 Como podemos ver, en realidad, las posibilidades de configurar el archivo \texttt{.vimrc} son infinitas, sobre todo porque ocultamos (por brevedad) el resto de la configuración de \textit{plugins} que se hacen dentro del archivo mencionado.
 Considerando esto, podemos ver que el archivo \texttt{.vimrc} es un archivo fundamental para poder configurar a \texttt{Vim} para poder realizar tareas productivas tanto como un \textit{IDE} (para programación) o como editor de documentos de \LaTeX.
 Hay que destacar que la configuración anterior es una configuración sumamente básica, es común que los usuarios avanzados de \texttt{Vim} tengan archivos de configuración de más de cien líneas. 
@@ -136,12 +140,289 @@ Hay que destacar que la configuración anterior es una configuración sumamente 
 \texttt{Vim} es un editor de texto muy básico, pero su principal ventaja es su capacidad de ser \textit{extensible} lo que permite agregar funciones a \texttt{Vim} que pueden ser:
 \begin{enumerate}
 	\item \textit{Syntax Highlighting} para los distintos lenguajes de programación que se usen para desarrollo de software en \texttt{Vim}.
-	\item Configuración de atajos de teclado \textit{para cada uno de los lenguajes de programación usados en} \texttt{Vim}, un buen ejemplo de esto puede ser el que, si tomamos a \LaTeX como un ejemplo, es muy común tener que escribir \texttt{"begin"} para colocar un entorno como \texttt{equation} o \texttt{align}. Por lo que es posible configurar un atajo de teclado para evitar la escritura completa de este comando.  
+	\item Configuración de atajos de teclado \textit{para cada uno de los lenguajes de programación usados en} \texttt{Vim}, un buen ejemplo de esto puede ser el que, si tomamos a \LaTeX \  como un ejemplo, es muy común tener que escribir \texttt{"begin"} para colocar un entorno como \texttt{equation} o \texttt{align}. Por lo que es posible configurar un atajo de teclado para evitar la escritura completa de este comando.  
 \end{enumerate}
 Los \textit{Plugins} en \texttt{Vim} se pueden instalar de dos formas: manual y utilizando un \textit{plugin-manager}. Debido a cuestiones más prácticas, vamos a centrarnos en la última forma de instalar los \textit{plugins}. En este caso, consideramos que es más conveniente revisar la documentación del \textit{plugin-manager} que el autor de este manual recomienda, en este caso, se recomienda empezar usando el \textit{manager} conocido como \textbf{Vim-Plug}.\\
 \textbf{Comentario: Como muchas de las instrucciones de instalación de software en Linux suelen cambiar con el tiempo, consideramos más conveniente que el lector revise las instalaciones de instalación de Vim-Plug en el repositorio de GitHub de este componente software.} El repositorio de \textbf{Vim-Plug} se encuentra en la siguiente dirección web. 
 \begin{center}
 \url{https://github.com/junegunn/vim-plug}	
 \end{center}
-Una vez que se ha instalado el gestor de plugins \textit{Vim-Plug}, es posible que si requiere instalar plugins de utilidad para este manual, usted requiera cambiar algunas cosas en el archivo \texttt{.vimrc}. Los plugins de interés que el autor usa en este manual se encuentran en la subsección 7.1 de este manual.  
+Una vez que se ha instalado el gestor de plugins \textit{Vim-Plug}, es posible que si requiere instalar plugins de utilidad para este manual, usted requiera cambiar algunas cosas en el archivo \texttt{.vimrc}. Los plugins de interés que el autor usa en este manual se encuentran en la subsección 7.1 de este manual. Mostramos aquí cómo es el proceso de instalación de los plugins que el autor de este manual usó para la creación de este documento. 
+\begin{minted}[linenos]{vim}
+"Este comando es para inicializar a Vim-Plug"
+call plug#begin('~/.vim/plugged')
+"Aquí le damos a Vim-Plug una lista de plugins a instalar"
+
+"PLUGIN DE ATAJOS DE TECLADO PARA LaTeX"
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+
+"PLUGIN PARA COMPILAR DOCUMENTOS EN TIEMPO REAL"
+Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+
+"ESTE ULTIMO PLUGIN TIENE SU PROPIA SECCION EN EL MANUAL"
+Plug 'lervag/vimtex'
+\end{minted}
+Una vez que tengamos lo que se mostró en la sección de código anterior, es posible instalar todos estos plugins usando el comando \texttt{:PlugInstall} en el modo \texttt{NORMAL} de \texttt{Vim}, esto considerando que se requiere de una correcta conexión a internet para poder instalar de dichos plugins. Además de esto, se le recomienda al usuario investigar por su cuenta acerca de los otros plugins que existen para otros lenguajes de programación, debido a que este manual solo se centra en aspectos básicos de \texttt{Vim} y su integración con \LaTeX. 
+\section{Uso básico de \texttt{Vimtex}}	
+Hemos hablado de algunos plugins que son usados para integrar el editor de \texttt{Vim} con \LaTeX. En este caso, podemos hacer uso del \textit{Plugin} conocido como \texttt{Vimtex}, que es una suite de plugins para \texttt{Vim} que está orientado a integrar a \texttt{Vim} con \LaTeX. Las instrucciones de instalación de \texttt{Vimtex} de nuevo, cambian con las constantes actualizaciones que se le hacen al software, por lo que recomendamos revisar el repositorio de GitHub para \texttt{Vimtex}.
+El repositorio de GitHub de \texttt{Vimtex} se encuentra en la siguiente dirección web:
+\begin{center}
+	\url{https://github.com/lervag/vimtex}
+\end{center}
+Una vez que se instale \texttt{Vimtex} en su ordenador, consideramos que es útil explicar los siguientes comandos y carácteristicas de \texttt{Vimtex} que pueden ser de utilidad para el usuario.
+\subsection{Configuración del archivo \texttt{.vimrc} orientado al uso de \texttt{Vimtex}}
+Como \texttt{Vimtex} es una suite de paquetes útiles para integrar \texttt{Vim} con \LaTeX, es necesario realizar algunos cuantos cambios al archivo \texttt{.vimrc} para que el plugin de \texttt{Vimtex} esté cargado cuando se ejecuta el comando \texttt{Vim} en la terminal y se requiere editar un archivo con extensión \texttt{*.tex} en la terminal. En realidad, muchas de las instrucciones acerca del cómo se debe colocar esta configuración están en elrepositorio de \texttt{Vimtex}, sin embargo, el autor de este manual si encontró algunos inconvenientes al principio para poder integrar \texttt{Vim}con esta suite, por lo que se considera conveniente explicar a fondo esta sección.\\
+La configuración que presenta el repositorio de \texttt{Vimtex} es la siguiente:
+\begin{minted}[linenos]{vim}
+" This is necessary for VimTeX to load properly. The "indent" is optional.
+" Note that most plugin managers will do this automatically.
+filetype plugin indent on
+
+" This enables Vim's and neovim's syntax-related features. Without this, some
+" VimTeX features will not work (see ":help vimtex-requirements" for more
+" info).
+syntax enable
+
+" Viewer options: One may configure the viewer either by specifying a built-in
+" viewer method:
+let g:vimtex_view_method = 'zathura'
+
+" Or with a generic interface:
+let g:vimtex_view_general_viewer = 'okular'
+let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
+
+" VimTeX uses latexmk as the default compiler backend. If you use it, which is
+" strongly recommended, you probably don't need to configure anything. If you
+" want another compiler backend, you can change it as follows. The list of
+" supported backends and further explanation is provided in the documentation,
+" see ":help vimtex-compiler".
+let g:vimtex_compiler_method = 'latexrun'
+
+" Most VimTeX mappings rely on localleader and this can be changed with the
+" following line. The default is usually fine and is the symbol "\".
+let maplocalleader = ","	
+\end{minted}
+Esta configuración puede copiarse y pegarse al archivo \texttt{.vimrc} sin ningún problema, el tema aquí es que la configuración aparenta tener algunas cosas que no suelen venir instaladas de fábrica en una instalación común de GNU-LINUX, como ser:
+\begin{itemize}
+	\item La configuración hace uso de un lector de pdf conocido como \texttt{zathura}, este lector suele ser usado por entusiastas de Linux que buscan un lector minimalista con atajos de \texttt{Vim}, sin embargo, no viene instalado de fábrica en muchas de las instalaciones de Linux, por lo que se le recomienda al usuario de este manual que comente o borre la línea 12 a conveniencia. 
+	\item Además de esto, si utiliza distribuciones de Linux como Ubuntu o alguna distribución de UNIX como MacOS, se recomienda cambiar opción de la linea 15. Se recomienda cambiar la opción de \texttt{okular} por \texttt{evince}. Estos dos últimos son lectores de archivos pdf con interfaz gráfica que suelen estar instalados de fábrica tanto en Ubuntu como en MacOS. 
+\end{itemize}
+
+La configuración está toda en inglés, pero el detalle de importancia es el siguiente: La línea que habla del \textit{compilador} de \LaTeX puede presentar problemas para el principiante, esto es porque muchas de las instalaciones de \LaTeX \ en GNU-LINUX suelen venir con el comando \texttt{latexmk} por defecto, este es un compilador más maduro y de uso general, por lo que es muy probable que se tenga que cambiar la linea 23 del pesudocódigo anterior con la siguiente línea:
+\begin{minted}[linenos]{vim}
+"Esta es la linea que debe ser cambiada."
+let g:vimtex_compiler_method = 'latexmk'
+\end{minted}
+
+\subsection{Comandos básicos de \texttt{Vimtex}}
+\texttt{Vimtex} es un plugin que funciona como una extensión de comandos utiles para el usuario de \texttt{Vim}, estos comandos van relacionados al uso de \texttt{Vim} como un editor completo de \LaTeX. Es por eso que consideramos que es prudente explicar algunos de los comandos básicos de \texttt{Vimtex}. 
+Algunos de estos comandos son de utilidad, sobre todo para el usuario de \texttt{Vim} y \LaTeX \ que tienen que ver con la compilación del documento. \newline
+Tenemos los siguientes comandos básicos:
+\begin{itemize}
+	\item Se usa \texttt{,ll} para compilación en \textit{modo continuo}, lo que quiere decir que cada vez que se guarde el documento de texto con el comando \texttt{:w} se procede a compilar el contenido completo del documento y mostrar una previsualización de este documento en un lector de archivos pdf de su elección.
+	\item Se utiliza el comando \texttt{,lk} para cerrar el modo de compilación en \textit{modo continuo}.
+	\item Es común que cuando se compile un archivo de extensión \texttt{*.tex} aparezcan muchos archivos que se le denominan \textit{archivos auxiliares}, si lo desea, el usuario puede borrar dichos archivos usando el comando \texttt{,lc}.
+	\item Existe también la opción de ver el contenido compilado (por ejemplo, texto compilado)  de una linea del \texttt{*.tex}, en este caso, se encuentra dicho contenido con el comando \texttt{,lv}.
+\end{itemize}
+\subsection{Revisión de errores con \texttt{Vimtex}}
+Algo muy común con el usuario principiante de \LaTeX \ es que al cambiar un par de lineas en su documento se encuentre en la penosa situación de obtener un \texttt{*.tex} que no compila. Muchas de las veces, en la humilde opinión del autor de este manual, estos errores pueden solventarse fácilmente si uno mira los errores que le arroja la consola al usuario.\\
+\texttt{Vimtex} es particularmente util para este tipo de corrección de errores y \textit{bugs} dentro del archivo de texto debido a que tiene integrada la capacidad de mostarle al usuario los errores en tiempo real mediante un menú que viene por defecto en \texttt{Vim}, el menú \texttt{QuickFix} este menú es simplemente una pestaña de \texttt{Vim} que se abre de forma paralela a la ventana principal y le permite al usuario tener una vista rápida de los errores que tiene el documento (si es que los tiene).\newpage
+\begin{figure}[t]
+\begin{center}
+	\includegraphics[scale=0.4]{./img/Quickfixmenu.png}
+\end{center}
+\caption{Vista del menú quickmenu, note que el error de compilación es muy simple. Resulta que los comandos \texttt{Foo} y \texttt{Bar} que se encuentran en la línea 228 del documento no están definidos.}
+\label{fig4}
+\end{figure}
+Puede observar que el menú está en la parte baja de la ventana de \texttt{Vim} y nos comenta que existe un error en la linea 228 del documento \texttt{tutorial.tex} que estamos editando. Además de esto, se nota que en la Figura \ref{fig4}. se observan las bondandes de usar \texttt{Vimtex} para la compilación de estos documentos,se nota que la ventana de la derecha es el documento siendo compilado en tiempo real, lo que le permite al usuario ser más productivo dado que la compilación suele ser un elemento de trabajar en \LaTeX \ que suele tomar su tiempo.\\
+Finalmente, le recomendamos al usuario revisar la documentación de \texttt{Vimtex} en su respectivo repositorio de GitHub. Esto con el objetivo de que el lector pueda realizar operaciones mucho más complicadas con este plugin. 
+\subsection{¿Es posible moverse entre los diferentes errores de \LaTeX \ en un documento?}
+Es normal que un documento de \LaTeX tenga errores en distintas partes del mismo. Por eso, \texttt{Vimtex} agrega al menú \textit{QuickFix} la posibilidad de moverse entre diferentes partes del documento, localizar los errores y corregirlos conforme se vaya necesitando. Para lograr esto, se hace lo siguiente:
+\begin{itemize}
+	\item Al crearse un error en el documento, se entra al menu \textit{QuickFix} con el comando \texttt{:copen}, esto permite saltar de la venta principal al menú y poder desplazarse en el mismo. 
+	\item Presionando la tecla \texttt{Enter} en el error situado dentro del menú \textit{QuickFix} se saltará a la línea que requiera corrección. Esto facilita al usuario revisar si ha escrito algo mal y depurar su archivo más rápido.
+	\item Una vez en la linea de destino, cierre la selección del menú \textit{QuickFix} usando el comando \texttt{:cw} de \texttt{Vim}.
+	\item Haga la corrección pertinente.
+\end{itemize}
+Esto se realiza por cada línea que se desea corregir, es interesante observar que cuando se trabaja así, se exige que al trabajar en un \texttt{*.tex} se manejen buenas prácticas de creación de documentos para tener la menor cantidad de errores posibles. Por lo que el usuario se entrena para poder escribir documentos de \LaTeX que contengan pocos errores, lo que mejora sus capacidades de creación. 
+\section{Atajos de Teclado para comandos de \LaTeX}
+Hasta ahora, tenemos una instalación de \texttt{Vim} que permite hacer dos cosas principales:
+\begin{enumerate}
+	\item Editar archivos de texto plano. 
+	\item Crear, editar y compilar en tiempo real archivos de extensión \texttt{*.tex}. 
+\end{enumerate}
+Ahora bien, todo esto es bastante sólido en cuento a productividad, pero quizá queremos aumentar la cantidad de trabajo que se desea producir. Una forma de hacer esto es evitar tener que escribir el comando de \LaTeX \ completo. Para ilustrar esto, consideremos el siguiente ejemplo:
+\begin{minted}[linenos]{latex}
+\begin{figure}
+\begin{center}
+	\includegraphics[scale=]{Figures/}
+\end{center}
+\caption{}
+\label{fig:}
+\end{figure}
+\end{minted}
+Es evidente pensar que escribir todo esto es particularmente ineficiente, entonces nos preguntamos \textit{¿Existe alguna forma para poder evitar escribir toda la sintaxis del comando?} Resulta que sí, en este caso, existe un plugin de \texttt{Vim} que nos permite usar lo que se conoce en la comunidad como los \textit{snippets}, en este caso, los snippets son atajos de teclado que permiten escribir todo el contenido de un comando o frase usando pocas letras.\\
+De nuevo, el plugin para usar los snippets debe instalarse ya sea usando \textbf{Vim-Plug} o de forma manual. El presente manual presenta la siguiente ventaja: si usted colocó la configuración dada en la sección 8 en su \texttt{.vimrc}, ya debería de tener instalado el plugin para poder hacer uso de los snippets. 
+Sin embargo, para poder usar los snippets (con el plugin \textit{Ultisnips}) es necesario que su sistema cumpla los siguientes requisitos:
+\begin{enumerate}
+	\item Su sistema debería de tener una instalación de \texttt{Python3} funcional. 
+	\item Su versión de \texttt{Vim} debería de tener la opción de compilado de \texttt{Python} activada. Para saber si su versión tiene esta característica, coloque el siguiente comando dentro de \texttt{Vim}:
+	\begin{center}
+		\texttt{:echo has("Python3")}
+	\end{center}
+En el caso de que su versión de \texttt{Vim} sea la adecuada, el comando le debería de arrojar un \texttt{1} como respuesta en la parte inferior de su ventana. 
+\end{enumerate}
+\newpage
+Una vez que tenga todo listo, primero, debe insertar lo siguiente en su \texttt{.vimrc}
+\begin{minted}[linenos]{vim}
+"La tecla para activar los snippets"
+let g:UltiSnipsExpandTrigger       = '<Tab>' 
+
+"Para usar tab y moverse entre snippets "
+let g:UltiSnipsJumpForwardTrigger  = '<Tab>'  
+
+"Para usar shift-tab y moverse hacia atrás entre snippets"
+let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'
+
+"Para colocar el directorio de los snippets"
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
+\end{minted}
+
+Para \texttt{Vim}, es común que los snippets se activen con una sola tecla del teclado, en este caso, se recomienda comenzar usando la tecla \texttt{tab} para el uso inicial de los snippets, si luego se desea cambiar el uso de estos, basta con remover la instrucción \texttt{<Tab>} que se ve anteriormente por la tecla de su preferencia. Ya dicho esto, podemos pasar a la parte de configuración de snippets de uso general. 
+\subsection{Configuración de Snippets}
+Para configurar los Snippets de uso local (para su instalación de Linux) se recomienda primero ir al siguiente directorio. 
+\begin{center}
+	\url{${HOME}/.vim}
+\end{center}
+Una vez en el directorio oculto de \texttt{Vim} debe observar que tiene que existir el siguiente árbol de directorios en esta carpeta:
+\begin{center}
+\begin{forest}
+  for tree={
+    font=\ttfamily,
+    grow'=0,
+    child anchor=west,
+    parent anchor=south,
+    anchor=west,
+    calign=first,
+    edge path={
+      \noexpand\path [draw, \forestoption{edge}]
+      (!u.south west) +(7.5pt,0) |- node[fill,inner sep=1.25pt] {} (.child anchor)\forestoption{edge label};
+    },
+    before typesetting nodes={
+      if n=1
+        {insert before={[,phantom]}}
+        {}
+    },
+    fit=band,
+    before computing xy={l=15pt},
+  }
+  [\url{${HOME}}
+  [\url{.vim}
+  [\url{UltiSnips}
+  	[\url{tex}]
+  ]
+  ]
+  ]
+]
+\end{forest}
+\end{center}
+Si no está alguna de esas carpetas, se le recomienda crearlas usando los comandos de creación de carpetas de Linux. Una vez que tenga este árbol de directorios, deberá crear un archivo en la carpeta \texttt{.tex}, que puede llamar como guste, seguido de la extensión \texttt{.snippets}. Este archivo se utiliza para editar los snippets que el usuario estime convenientes para su flujo de trabajo. Al final debería de tener algo como esto en su arbol de directorios: 
+\begin{center}
+\begin{forest}
+  for tree={
+    font=\ttfamily,
+    grow'=0,
+    child anchor=west,
+    parent anchor=south,
+    anchor=west,
+    calign=first,
+    edge path={
+      \noexpand\path [draw, \forestoption{edge}]
+      (!u.south west) +(7.5pt,0) |- node[fill,inner sep=1.25pt] {} (.child anchor)\forestoption{edge label};
+    },
+    before typesetting nodes={
+      if n=1
+        {insert before={[,phantom]}}
+        {}
+    },
+    fit=band,
+    before computing xy={l=15pt},
+  }
+  [\url{${HOME}}
+  [\url{.vim}
+  [\url{UltiSnips}
+  	[\url{tex}
+		[\url{archivo.snippets}]
+	]
+  ]
+  ]
+  ]
+]
+\end{forest}	
+\end{center}
+Con todo esto hecho, solo resta editar (usando \texttt{Vim}) el archivo \texttt{archivo.snippets} de modo que se pueda editar un snippet muy básico y se muestren las capacidades del plugin \textit{UltiSnips}. Dicho esto, se procede a mostrar la estructura básica de un snippet de \texttt{Vim}.
+\begin{minted}[linenos]{vim}
+snippet {bandera} ["descripción" [opciones]]
+{cuerpo snippet}
+endsnippet
+\end{minted}
+Esto puede parecer un poco confuso, por lo que se procede a explicar cuales son los parámetros de importancia.
+\begin{itemize}
+	\item La \textit{bandera} es la combinación de letras que seguidas de la tecla \texttt{tab}, permite correr el snippet. 
+	\item El \textit{cuerpo snippet} es la pieza de codigo\slash frase\slash texto que se quiere escribir mediante el atajo de teclado. 
+\end{itemize}
+Consideramos conveniente ilustrar esta teoría mediante un ejemplo, por lo que el autor de este manual comparte algunos de los snippets que ha creado para su uso personal:
+\begin{minted}[linenos]{vim}
+snippet tt "El comando de texto de terminal"
+\texttt{$1}$0
+endsnippet
+
+snippet ti "El texto en italica"
+\textit{$1}$0
+endsnippet
+
+snippet tb "El texto en negrita"
+\textit{$1}$0
+endsnippet
+
+snippet ff "El comando de fraccion"
+\frac{$1}{$2}$0
+endsnippet
+
+snippet sec "El comando de seccion"
+\section{$1}$0
+endsnippet
+
+snippet ssec "El comando de subseccion"
+\subsection*{$1}$0
+endsnippet
+
+snippet env "el comando para entornos"
+\begin{$1}
+	$2
+\end{$1}
+$0
+endsnippet
+
+snippet fig "El comando para figura"
+\begin{figure}
+	\centering
+	\includegraphics[$1]{$2}
+	\caption{$0}
+\end{figure}
+endsnippet
+\end{minted}
+El lector ahora quizá se esté preguntando \textit{¿Qué son esos simbolos de dolar seguidos de un número?} En sí, esos símbolos pueden entenderse como la zona en la que se desea que quede el cursor cuando se active el snippet. Es decir, utilizando la tecla \texttt{tab} podemos movernos entre el comando de \LaTeX para colocar los parámetros que queremos editar. Un buen ejemplo es el del snippet con \textit{bandera} \texttt{env}, que visto más de cerca es el siguiente:
+\begin{minted}[linenos]{vim}
+snippet env "el comando para entornos"
+\begin{$1}
+	$2
+\end{$1}
+$0
+endsnippet
+\end{minted}
+En este caso, se nota que el símbolo \texttt{\$1} está presente tanto en el \texttt{begin} como en el \texttt{end} del comando. Esto tiene el siguiente uso: podemos escribir el entorno de \LaTeX que queremos \textit{al mismo tiempo} si configuramos el snippet de la forma que se mostró con anterioridad, por lo que no es necesario escribir el entorno en el \texttt{begin} como en el \texttt{end}, dado que esta configuración permite escribir la frase al mismo tiempo en los dos lugares marcados por el símbolo \texttt{\$1}.
+\section{Algunas recomendaciones finales}
+Si bien \texttt{Vim} es un editor de texto potente, este tiene una curva de dificultad relativamente pronunciada. Esto no es malo, simplemente se necesita de tiempo para poder acostumbrarse al flujo de trabajo que este software requiere del usuario para poder ser utilizado a su máximo potencial. \\
+Se recomienda antes de realizar todo el trabajo de configuración visto en este manual, primero, revisar el complemento \texttt{vimtutor} para poder tener cierta soltura con los comandos básicos de \texttt{Vim} y la navegación básica que este software ofrece. Además de esto, si bien es cierto que este manual va orientado a integrar \texttt{Vim} con \LaTeX, es necesario recalcar que en realidad, \texttt{Vim} es una herramienta de uso general y puede configurarse para usarse como \textit{IDE} de cualquier plataforma de programación, por lo que es de principal utilidad a aquellos desarrolladores que desean un \textit{IDE} minimalista y veloz. Por lo comentado anteriormente, el autor de este manual exhorta al lector a revisar otros usos de \texttt{Vim} orientados más bien al desarrollo software. 
 \end{document}

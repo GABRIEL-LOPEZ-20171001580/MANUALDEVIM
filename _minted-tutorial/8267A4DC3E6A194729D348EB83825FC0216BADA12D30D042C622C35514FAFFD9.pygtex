@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+snippet env \PYG{l+s+s2}{\PYGZdq{}el comando para entornos\PYGZdq{}}
+\PYGZbs{}begin\PYGZob{}\PYGZdl{}\PYG{l+m}{1}\PYGZcb{}
+	\PYGZdl{}\PYG{l+m}{2}
+\PYGZbs{}\PYG{k}{end}\PYGZob{}\PYGZdl{}\PYG{l+m}{1}\PYGZcb{}
+\PYGZdl{}\PYG{l+m}{0}
+endsnippet
+\end{Verbatim}

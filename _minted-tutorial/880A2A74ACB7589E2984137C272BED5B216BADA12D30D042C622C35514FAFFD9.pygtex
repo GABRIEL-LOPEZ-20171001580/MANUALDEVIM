@@ -1,0 +1,40 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+snippet tt \PYG{l+s+s2}{\PYGZdq{}El comando de texto de terminal\PYGZdq{}}
+\PYGZbs{}texttt\PYGZob{}\PYGZdl{}\PYG{l+m}{1}\PYGZcb{}\PYGZdl{}\PYG{l+m}{0}
+endsnippet
+
+snippet ti \PYG{l+s+s2}{\PYGZdq{}El texto en italica\PYGZdq{}}
+\PYGZbs{}textit\PYGZob{}\PYGZdl{}\PYG{l+m}{1}\PYGZcb{}\PYGZdl{}\PYG{l+m}{0}
+endsnippet
+
+snippet \PYG{n+nb}{tb} \PYG{l+s+s2}{\PYGZdq{}El texto en negrita\PYGZdq{}}
+\PYGZbs{}textit\PYGZob{}\PYGZdl{}\PYG{l+m}{1}\PYGZcb{}\PYGZdl{}\PYG{l+m}{0}
+endsnippet
+
+snippet \PYG{n+nb}{ff} \PYG{l+s+s2}{\PYGZdq{}El comando de fraccion\PYGZdq{}}
+\PYGZbs{}frac\PYGZob{}\PYGZdl{}\PYG{l+m}{1}\PYGZcb{}\PYGZob{}\PYGZdl{}\PYG{l+m}{2}\PYGZcb{}\PYGZdl{}\PYG{l+m}{0}
+endsnippet
+
+snippet sec \PYG{l+s+s2}{\PYGZdq{}El comando de seccion\PYGZdq{}}
+\PYGZbs{}section\PYGZob{}\PYGZdl{}\PYG{l+m}{1}\PYGZcb{}\PYGZdl{}\PYG{l+m}{0}
+endsnippet
+
+snippet ssec \PYG{l+s+s2}{\PYGZdq{}El comando de subseccion\PYGZdq{}}
+\PYGZbs{}subsection*\PYGZob{}\PYGZdl{}\PYG{l+m}{1}\PYGZcb{}\PYGZdl{}\PYG{l+m}{0}
+endsnippet
+
+snippet env \PYG{l+s+s2}{\PYGZdq{}el comando para entornos\PYGZdq{}}
+\PYGZbs{}begin\PYGZob{}\PYGZdl{}\PYG{l+m}{1}\PYGZcb{}
+	\PYGZdl{}\PYG{l+m}{2}
+\PYGZbs{}\PYG{k}{end}\PYGZob{}\PYGZdl{}\PYG{l+m}{1}\PYGZcb{}
+\PYGZdl{}\PYG{l+m}{0}
+endsnippet
+
+snippet fig \PYG{l+s+s2}{\PYGZdq{}El comando para figura\PYGZdq{}}
+\PYGZbs{}begin\PYGZob{}figure\PYGZcb{}
+	\PYGZbs{}centering
+	\PYGZbs{}includegraphics[\PYGZdl{}\PYG{l+m}{1}]\PYGZob{}\PYGZdl{}\PYG{l+m}{2}\PYGZcb{}
+	\PYGZbs{}caption\PYGZob{}\PYGZdl{}\PYG{l+m}{0}\PYGZcb{}
+\PYGZbs{}\PYG{k}{end}\PYGZob{}figure\PYGZcb{}
+endsnippet
+\end{Verbatim}

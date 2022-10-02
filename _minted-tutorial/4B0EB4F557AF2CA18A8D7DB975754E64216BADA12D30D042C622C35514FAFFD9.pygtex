@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+snippet \PYGZob{}bandera\PYGZcb{} [\PYG{l+s+s2}{\PYGZdq{}descripción\PYGZdq{}} [opciones]]
+\PYGZob{}cuerpo snippet\PYGZcb{}
+endsnippet
+\end{Verbatim}

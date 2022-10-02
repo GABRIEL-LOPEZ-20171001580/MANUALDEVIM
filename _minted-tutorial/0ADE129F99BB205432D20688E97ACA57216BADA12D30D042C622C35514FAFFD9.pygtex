@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZdq{}Este comando es para inicializar a Vim\PYGZhy{}Plug\PYGZdq{}}
+\PYG{k}{call} plug\PYGZsh{}begin\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}\PYGZti{}/.vim/plugged\PYGZsq{}}\PYG{p}{)}
+\PYG{c}{\PYGZdq{}Aquí le damos a Vim\PYGZhy{}Plug una lista de plugins a instalar\PYGZdq{}}
+
+\PYG{c}{\PYGZdq{}PLUGIN DE ATAJOS DE TECLADO PARA LaTeX\PYGZdq{}}
+Plug \PYG{l+s+s1}{\PYGZsq{}SirVer/ultisnips\PYGZsq{}} \PYG{p}{|} Plug \PYG{l+s+s1}{\PYGZsq{}honza/vim\PYGZhy{}snippets\PYGZsq{}}
+
+\PYG{c}{\PYGZdq{}PLUGIN PARA COMPILAR DOCUMENTOS EN TIEMPO REAL\PYGZdq{}}
+Plug \PYG{l+s+s1}{\PYGZsq{}xuhdev/vim\PYGZhy{}latex\PYGZhy{}live\PYGZhy{}preview\PYGZsq{}}\PYG{p}{,} \PYGZob{} \PYG{l+s+s1}{\PYGZsq{}for\PYGZsq{}}: \PYG{l+s+s1}{\PYGZsq{}tex\PYGZsq{}} \PYGZcb{}
+
+\PYG{c}{\PYGZdq{}ESTE ULTIMO PLUGIN TIENE SU PROPIA SECCION EN EL MANUAL\PYGZdq{}}
+Plug \PYG{l+s+s1}{\PYGZsq{}lervag/vimtex\PYGZsq{}}
+\end{Verbatim}

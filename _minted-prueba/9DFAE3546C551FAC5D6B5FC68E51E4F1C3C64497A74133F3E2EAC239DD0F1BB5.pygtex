@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZdq{} Use Vim settings, rather than Vi settings (much better!).}
+\PYG{c}{\PYGZdq{} This must be first, because it changes other options as a side effect.}
+\PYG{k}{set} \PYG{n+nb}{nocompatible}
+
+\PYG{c}{\PYGZdq{} allow backspacing over everything in insert mode}
+\PYG{k}{set} \PYG{n+nb}{backspace}\PYG{p}{=}indent\PYG{p}{,}\PYG{n+nb}{eol}\PYG{p}{,}\PYG{k}{start}
+\end{Verbatim}

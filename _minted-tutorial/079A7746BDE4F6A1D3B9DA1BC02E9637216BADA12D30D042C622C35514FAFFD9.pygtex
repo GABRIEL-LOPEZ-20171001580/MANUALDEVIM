@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZdq{}Esta es la linea que debe ser cambiada.\PYGZdq{}}
+\PYG{k}{let} \PYG{k}{g}:vimtex\PYGZus{}compiler\PYGZus{}method \PYG{p}{=} \PYG{l+s+s1}{\PYGZsq{}latexmk\PYGZsq{}}
+\end{Verbatim}

@@ -1,0 +1,19 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZdq{}Esto es un comentario en el archivo .vimrc\PYGZdq{}}
+
+\PYG{c}{\PYGZdq{}El siguiente comando es para colocar numero de línea al lado del editor\PYGZdq{}}
+\PYG{p}{:}\PYG{k}{set} \PYG{k}{number}
+\PYG{c}{\PYGZdq{}Comando para hacer ajuste del texto al ancho de ventana\PYGZdq{}}
+\PYG{p}{:}\PYG{k}{set} \PYG{n+nb}{wrap}
+\PYG{c}{\PYGZdq{}Comando usado para la instalación de plugins\PYGZdq{}}
+\PYG{k}{call} plug\PYGZsh{}begin\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}\PYGZti{}/.vim/plugged\PYGZsq{}}\PYG{p}{)}
+
+\PYG{c}{\PYGZdq{}INSTALACION DE PLUGINS\PYGZdq{}}
+\PYG{c}{\PYGZdq{}Se instalan multiples plugins con el comando Plug \PYGZsh{}nombre}
+\PYG{c}{\PYGZdq{}seguido del caracter |\PYGZdq{}}
+Plug \PYG{l+s+s1}{\PYGZsq{}SirVer/ultisnips\PYGZsq{}} \PYG{p}{|} Plug \PYG{l+s+s1}{\PYGZsq{}honza/vim\PYGZhy{}snippets\PYGZsq{}}
+Plug \PYG{l+s+s1}{\PYGZsq{}xuhdev/vim\PYGZhy{}latex\PYGZhy{}live\PYGZhy{}preview\PYGZsq{}}\PYG{p}{,} \PYGZob{} \PYG{l+s+s1}{\PYGZsq{}for\PYGZsq{}}: \PYG{l+s+s1}{\PYGZsq{}tex\PYGZsq{}} \PYGZcb{}
+Plug \PYG{l+s+s1}{\PYGZsq{}lervag/vimtex\PYGZsq{}}
+\PYG{c}{\PYGZdq{}Mas adelante se aprenderá para qué sirven los comandos situados\PYGZdq{}}
+\PYG{c}{\PYGZdq{}Despues del :set wrap\PYGZdq{}}
+\end{Verbatim}

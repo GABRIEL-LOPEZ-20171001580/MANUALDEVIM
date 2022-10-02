@@ -1,0 +1,29 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZdq{} This is necessary for VimTeX to load properly. The \PYGZdq{}indent\PYGZdq{} is optional.}
+\PYG{c}{\PYGZdq{} Note that most plugin managers will do this automatically.}
+\PYG{k}{filetype} plugin indent \PYG{k}{on}
+
+\PYG{c}{\PYGZdq{} This enables Vim\PYGZsq{}s and neovim\PYGZsq{}s syntax\PYGZhy{}related features. Without this, some}
+\PYG{c}{\PYGZdq{} VimTeX features will not work (see \PYGZdq{}:help vimtex\PYGZhy{}requirements\PYGZdq{} for more}
+\PYG{c}{\PYGZdq{} info).}
+\PYG{n+nb}{syntax} enable
+
+\PYG{c}{\PYGZdq{} Viewer options: One may configure the viewer either by specifying a built\PYGZhy{}in}
+\PYG{c}{\PYGZdq{} viewer method:}
+\PYG{k}{let} \PYG{k}{g}:vimtex\PYGZus{}view\PYGZus{}method \PYG{p}{=} \PYG{l+s+s1}{\PYGZsq{}zathura\PYGZsq{}}
+
+\PYG{c}{\PYGZdq{} Or with a generic interface:}
+\PYG{k}{let} \PYG{k}{g}:vimtex\PYGZus{}view\PYGZus{}general\PYGZus{}viewer \PYG{p}{=} \PYG{l+s+s1}{\PYGZsq{}okular\PYGZsq{}}
+\PYG{k}{let} \PYG{k}{g}:vimtex\PYGZus{}view\PYGZus{}general\PYGZus{}options \PYG{p}{=} \PYG{l+s+s1}{\PYGZsq{}\PYGZhy{}\PYGZhy{}unique file:@pdf\PYGZbs{}\PYGZsh{}src:@line@tex\PYGZsq{}}
+
+\PYG{c}{\PYGZdq{} VimTeX uses latexmk as the default compiler backend. If you use it, which is}
+\PYG{c}{\PYGZdq{} strongly recommended, you probably don\PYGZsq{}t need to configure anything. If you}
+\PYG{c}{\PYGZdq{} want another compiler backend, you can change it as follows. The list of}
+\PYG{c}{\PYGZdq{} supported backends and further explanation is provided in the documentation,}
+\PYG{c}{\PYGZdq{} see \PYGZdq{}:help vimtex\PYGZhy{}compiler\PYGZdq{}.}
+\PYG{k}{let} \PYG{k}{g}:vimtex\PYGZus{}compiler\PYGZus{}method \PYG{p}{=} \PYG{l+s+s1}{\PYGZsq{}latexrun\PYGZsq{}}
+
+\PYG{c}{\PYGZdq{} Most VimTeX mappings rely on localleader and this can be changed with the}
+\PYG{c}{\PYGZdq{} following line. The default is usually fine and is the symbol \PYGZdq{}\PYGZbs{}\PYGZdq{}.}
+\PYG{k}{let} maplocalleader \PYG{p}{=} \PYG{l+s+s2}{\PYGZdq{},\PYGZdq{}}	
+\end{Verbatim}
